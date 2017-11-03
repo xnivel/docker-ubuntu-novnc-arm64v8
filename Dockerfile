@@ -1,5 +1,5 @@
 FROM arm64v8/ubuntu:16.04
-MAINTAINER Yen3 <yen3@gmail.com>
+MAINTAINER yen3 <yen3@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get install -y --force-yes --no-install-recommends supervisor \
         openssh-server pwgen sudo vim-tiny \
         net-tools \
-        lxde x11vnc xvfb \
+        lxde x11vnc x11vnc-data xvfb \
         gtk2-engines-murrine ttf-ubuntu-font-family \
         libreoffice firefox \
         fonts-wqy-microhei \
@@ -18,10 +18,6 @@ RUN apt-get update \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
-
-#ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_armhf.deb /tmp/
-#ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
-#RUN dpkg -i /tmp/x11vnc*.deb
 
 ADD web /web/
 RUN pip install -r /web/requirements.txt
