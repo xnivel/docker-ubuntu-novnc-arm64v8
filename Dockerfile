@@ -1,4 +1,4 @@
-FROM arm64v8/ubuntu
+FROM arm64v8/ubuntu:16.04
 MAINTAINER Yen3 <yen3@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -19,9 +19,9 @@ RUN apt-get update \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
-ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_armhf.deb /tmp/
-ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
-RUN dpkg -i /tmp/x11vnc*.deb
+#ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc_0.9.14-1.1ubuntu1_armhf.deb /tmp/
+#ADD https://dl.dropboxusercontent.com/u/23905041/x11vnc-data_0.9.14-1.1ubuntu1_all.deb /tmp/
+#RUN dpkg -i /tmp/x11vnc*.deb
 
 ADD web /web/
 RUN pip install -r /web/requirements.txt
