@@ -20,7 +20,9 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 ADD web /web/
-RUN pip install -r /web/requirements.txt
+ADD get-pip.py /get-pip.py
+RUN python get-pip.py
+RUN /usr/local/bin/pip install -r /web/requirements.txt
 
 ADD noVNC /noVNC/
 ADD nginx.conf /etc/nginx/sites-enabled/default
