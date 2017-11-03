@@ -1,5 +1,5 @@
-FROM armbuild/ubuntu
-MAINTAINER Colin
+FROM arm64v8/ubuntu
+MAINTAINER Yen3 <yen3@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV HOME /root
